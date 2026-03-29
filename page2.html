@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Things I Love About You 🐱</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --pink-deep:  #e8749a;
+      --pink-mid:   #f4a7c0;
+      --pink-light: #fce4ec;
+      --cream:      #fff8fb;
+      --text-dark:  #4a2040;
+      --text-mid:   #7a4060;
+      --text-light: #b07090;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(160deg, #ffe4f0 0%, #ffd6e8 60%, #ffcce5 100%);
+      padding: 60px 24px 50px;
+      text-align: center;
+      position: relative;
+    }
+    .hero .cat { font-size: 4rem; animation: wiggle 2s ease-in-out infinite; }
+    @keyframes wiggle {
+      0%,100% { transform: rotate(-5deg); }
+      50% { transform: rotate(5deg); }
+    }
+    .back-btn {
+      position: absolute;
+      top: 20px; left: 20px;
+      font-size: 1.5rem;
+      text-decoration: none;
+      background: white;
+      border-radius: 50%;
+      width: 42px; height: 42px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 3px 12px #f4a7c050;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 8vw, 3rem);
+      color: var(--text-dark);
+      margin: 16px 0 10px;
+    }
+    .hero h1 em { color: var(--pink-deep); font-style: italic; }
+    .hero p { color: var(--text-mid); font-size: 1rem; line-height: 1.6; }
+
+    /* ── CARDS GRID ── */
+    .cards-section { padding: 50px 20px 60px; }
+    .section-label {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--pink-deep); margin-bottom: 24px;
+    }
+    .section-label::before, .section-label::after {
+      content: ''; flex: 1; height: 1px; background: var(--pink-mid);
+    }
+
+    .love-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+    .love-card {
+      background: white;
+      border-radius: 22px;
+      padding: 22px 16px;
+      text-align: center;
+      box-shadow: 0 4px 18px #f4a7c028;
+      border: 1.5px solid #fce4ec;
+      transition: transform 0.15s;
+      cursor: default;
+    }
+    .love-card:active { transform: scale(0.95); }
+    .love-card.wide {
+      grid-column: span 2;
+    }
+    .love-card .card-emoji { font-size: 2.4rem; margin-bottom: 10px; }
+    .love-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+    .love-card p {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    /* ── CAT STRIP ── */
+    .cat-strip {
+      background: linear-gradient(90deg, var(--pink-deep), #f08, var(--pink-deep));
+      color: white;
+      text-align: center;
+      padding: 30px 24px;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 5vw, 1.8rem);
+      font-style: italic;
+      line-height: 1.5;
+    }
+    .cat-row-strip { font-size: 1.5rem; letter-spacing: 8px; margin: 14px 0 0; }
+
+    /* ── PROMISE ── */
+    .promise-section {
+      padding: 50px 24px 60px;
+      background: #fff5f9;
+      text-align: center;
+    }
+    .promise-card {
+      background: white;
+      border-radius: 26px;
+      padding: 32px 24px;
+      max-width: 380px;
+      margin: 0 auto;
+      box-shadow: 0 6px 28px #f4a7c030;
+      border: 1.5px solid #fce4ec;
+    }
+    .promise-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+    }
+    .promise-list { list-style: none; text-align: left; }
+    .promise-list li {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 12px 0;
+      border-bottom: 1px solid #fce4ec;
+      font-size: 0.92rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+    .promise-list li:last-child { border-bottom: none; }
+    .promise-list .icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+
+    /* ── FINAL LOVE NOTE ── */
+    .final-section {
+      padding: 50px 24px 80px;
+      background: linear-gradient(160deg, #fff0f8, #fce4ec);
+      text-align: center;
+    }
+    .final-cat { font-size: 5rem; animation: finalCat 3s ease-in-out infinite; }
+    @keyframes finalCat {
+      0%,100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-10px) scale(1.05); }
+    }
+    .final-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 7vw, 2.4rem);
+      color: var(--text-dark);
+      margin: 16px 0 14px;
+    }
+    .final-section p {
+      font-size: 1rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+      max-width: 340px;
+      margin: 0 auto 28px;
+    }
+    .home-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--pink-deep);
+      color: white;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 6px 24px #e8749a50;
+    }
+    .home-btn:active { transform: scale(0.96); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--pink-deep);
+      color: white;
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 0.82rem;
+    }
+    footer .cr { font-size: 1.4rem; letter-spacing: 8px; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <a href="index.html" class="back-btn">←</a>
+  <div class="cat">😸</div>
+  <h1>Things I Love<br /><em>About You</em></h1>
+  <p>Just a few of the million reasons why 🌸</p>
+</div>
+
+<!-- ── LOVE CARDS ── -->
+<section class="cards-section">
+  <div class="section-label">You, simply you</div>
+  <div class="love-grid">
+
+    <div class="love-card">
+      <div class="card-emoji">🐱</div>
+      <h3>Your Love for Cats</h3>
+      <p>Anyone who loves cats has a soft, pure heart. And yours is the softest of all.</p>
+    </div>
+
+    <div class="love-card">
+      <div class="card-emoji">🌙</div>
+      <h3>The Night Owl in You</h3>
+      <p>Our late-night chats are my favourite part of every day.</p>
+    </div>
+
+    <div class="love-card">
+      <div class="card-emoji">😂</div>
+      <h3>Your Laugh</h3>
+      <p>It's contagious. I'd do anything just to hear it again and again.</p>
+    </div>
+
+    <div class="love-card">
+      <div class="card-emoji">💪</div>
+      <h3>Your Strength</h3>
+      <p>You carry so much quietly. You're braver than you know.</p>
+    </div>
+
+    <div class="love-card wide">
+      <div class="card-emoji">🌸</div>
+      <h3>The Way You Care</h3>
+      <p>You notice little things. You remember. You check in. The way you love people — gently, deeply — is one of the most beautiful things about you. I notice it every single day.</p>
+    </div>
+
+    <div class="love-card">
+      <div class="card-emoji">✨</div>
+      <h3>Your Sparkle</h3>
+      <p>You make every room a little brighter just by being in it.</p>
+    </div>
+
+    <div class="love-card">
+      <div class="card-emoji">🤍</div>
+      <h3>Your Patience</h3>
+      <p>Especially with me. That's love in its truest form.</p>
+    </div>
+
+    <div class="love-card wide">
+      <div class="card-emoji">🐾</div>
+      <h3>Simply Being You</h3>
+      <p>I don't have to try and list reasons. The truth is — I love you because you're you. Every part. Every version. Every single day.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── CAT STRIP ── -->
+<div class="cat-strip">
+  "In another life, I'd still find you. I'd choose you every single time."
+  <div class="cat-row-strip">🐾 🌸 🐾 🌸 🐾</div>
+</div>
+
+<!-- ── PROMISES ── -->
+<section class="promise-section">
+  <div class="promise-card">
+    <h2>My Promises to You 🌸</h2>
+    <ul class="promise-list">
+      <li><span class="icon">💌</span> I'll always show up for you, even on the hard days.</li>
+      <li><span class="icon">😄</span> I'll keep making you laugh, even at my dumb jokes.</li>
+      <li><span class="icon">🐱</span> I'll never make fun of your cat obsession. (Okay, just a little.)</li>
+      <li><span class="icon">🌙</span> I'll always be your safe place to land.</li>
+      <li><span class="icon">🤍</span> I'll love you beyond 18 months. And beyond that, too.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ── FINAL ── -->
+<section class="final-section">
+  <div class="final-cat">🐱</div>
+  <h2>Here's to 18 More<br />(and more and more)</h2>
+  <p>You're the best thing that's happened to me. I hope every day with me feels as warm and lovely as you deserve. Happy 18 months, my love.</p>
+  <a href="index.html" class="home-btn">← Back to the start 🌸</a>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="cr">🐾 💕 🐾</div>
+  <p>Made with pink, cats, and a whole heart — just for you ✨</p>
+</footer>
+
+</body>
+</html>
