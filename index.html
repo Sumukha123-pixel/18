@@ -1,1 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>18 Months With You 🐾</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --pink-deep:    #e8749a;
+      --pink-mid:     #f4a7c0;
+      --pink-light:   #fce4ec;
+      --pink-pale:    #fff0f5;
+      --pink-blush:   #ffd6e4;
+      --cream:        #fff8fb;
+      --text-dark:    #4a2040;
+      --text-mid:     #7a4060;
+      --text-light:   #b07090;
+      --accent:       #ff6b9d;
+    }
 
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ─── FLOATING PAWS BACKGROUND ─── */
+    .bg-paws {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .paw {
+      position: absolute;
+      font-size: 1.4rem;
+      opacity: 0.07;
+      animation: floatPaw linear infinite;
+    }
+
+    @keyframes floatPaw {
+      0%   { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10%  { opacity: 0.07; }
+      90%  { opacity: 0.07; }
+      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px 60px;
+      background: linear-gradient(160deg, #fff0f8 0%, #ffd6e8 50%, #ffe4f0 100%);
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #f9c0d8 0%, transparent 70%);
+      opacity: 0.6;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fbafd0 0%, transparent 70%);
+      opacity: 0.5;
+    }
+
+    .cat-face {
+      font-size: 5rem;
+      animation: catBounce 2.5s ease-in-out infinite;
+      margin-bottom: 12px;
+      filter: drop-shadow(0 4px 16px #f4a7c060);
+    }
+    @keyframes catBounce {
+      0%, 100% { transform: translateY(0) rotate(-3deg); }
+      50%       { transform: translateY(-12px) rotate(3deg); }
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--pink-deep);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 14px #e8749a50;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 10vw, 4rem);
+      line-height: 1.15;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--pink-deep);
+    }
+
+    .hero p.subtitle {
+      font-size: clamp(1rem, 4vw, 1.2rem);
+      color: var(--text-mid);
+      max-width: 320px;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .hearts-row {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 36px;
+    }
+    .hearts-row span {
+      font-size: 1.6rem;
+      animation: heartPulse 1.4s ease-in-out infinite;
+    }
+    .hearts-row span:nth-child(2) { animation-delay: 0.2s; }
+    .hearts-row span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes heartPulse {
+      0%, 100% { transform: scale(1); }
+      50%       { transform: scale(1.25); }
+    }
+
+    .scroll-hint {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      letter-spacing: 1px;
+      animation: fadeUpDown 2s ease-in-out infinite;
+    }
+    @keyframes fadeUpDown {
+      0%, 100% { opacity: 0.4; transform: translateY(0); }
+      50%       { opacity: 1;   transform: translateY(6px); }
+    }
+
+    /* ─── SECTIONS ─── */
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 60px 24px;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--pink-deep);
+      margin-bottom: 14px;
+    }
+    .section-label::before,
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--pink-mid);
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 7vw, 2.6rem);
+      text-align: center;
+      color: var(--text-dark);
+      margin-bottom: 32px;
+    }
+
+    /* ─── COUNTER CARDS ─── */
+    .counter-section {
+      background: linear-gradient(135deg, #fff0f8, #fce4ec);
+    }
+    .counter-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .counter-card {
+      background: white;
+      border-radius: 20px;
+      padding: 24px 16px;
+      text-align: center;
+      box-shadow: 0 4px 20px #f4a7c030;
+      border: 1.5px solid #fce4ec;
+      transition: transform 0.2s;
+    }
+    .counter-card:active { transform: scale(0.96); }
+    .counter-card .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      color: var(--pink-deep);
+      line-height: 1;
+    }
+    .counter-card .unit {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-top: 4px;
+      font-weight: 600;
+    }
+    .counter-card .icon {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+
+    /* ─── REASONS ─── */
+    .reasons-section {
+      background: var(--cream);
+    }
+    .reasons-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+    .reason-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: white;
+      border-radius: 18px;
+      padding: 18px 20px;
+      box-shadow: 0 3px 16px #f4a7c025;
+      border-left: 4px solid var(--pink-mid);
+      animation: slideIn 0.5s ease both;
+    }
+    .reason-item:nth-child(even) { border-left-color: var(--pink-deep); }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-20px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    .reason-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+    .reason-text { font-size: 0.98rem; color: var(--text-mid); line-height: 1.6; }
+
+    /* ─── QUOTE BLOCK ─── */
+    .quote-section {
+      background: linear-gradient(135deg, var(--pink-deep) 0%, #f08 50%, #e8749a 100%);
+      color: white;
+      text-align: center;
+    }
+    .quote-section blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 6vw, 2rem);
+      font-style: italic;
+      line-height: 1.5;
+      max-width: 360px;
+      margin: 0 auto 20px;
+    }
+    .quote-section cite {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      letter-spacing: 1px;
+    }
+    .paw-divider {
+      font-size: 1.2rem;
+      opacity: 0.6;
+      margin: 20px 0;
+      letter-spacing: 6px;
+    }
+
+    /* ─── MESSAGE ─── */
+    .message-section {
+      background: linear-gradient(160deg, #fff0f8, #fce4ec);
+      text-align: center;
+    }
+    .message-bubble {
+      background: white;
+      border-radius: 28px 28px 28px 6px;
+      padding: 28px 28px;
+      max-width: 380px;
+      margin: 0 auto;
+      box-shadow: 0 8px 32px #f4a7c035;
+      border: 1.5px solid #fce4ec;
+      position: relative;
+    }
+    .message-bubble::before {
+      content: '🐾';
+      position: absolute;
+      top: -16px;
+      left: 20px;
+      font-size: 1.8rem;
+    }
+    .message-bubble p {
+      font-size: 1rem;
+      color: var(--text-mid);
+      line-height: 1.9;
+    }
+    .message-bubble .sign {
+      margin-top: 20px;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--pink-deep);
+    }
+
+    /* ─── SECOND PAGE BUTTON ─── */
+    .nav-section {
+      background: var(--cream);
+      text-align: center;
+      padding: 40px 24px 60px;
+    }
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--pink-deep);
+      color: white;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 16px 36px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 6px 24px #e8749a50;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .nav-btn:active {
+      transform: scale(0.96);
+      box-shadow: 0 2px 10px #e8749a40;
+    }
+    .nav-note {
+      margin-top: 14px;
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--pink-deep);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.85rem;
+      position: relative;
+      z-index: 1;
+    }
+    footer .cat-row {
+      font-size: 1.5rem;
+      letter-spacing: 8px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="bg-paws" id="bgPaws"></div>
+
+<section class="hero">
+  <div class="badge">💕 A Special Day For You 💕</div>
+  <div class="cat-face">🐱</div>
+  <h1>18 Months of<br /><em>Us, Meow & More</em></h1>
+  <p class="subtitle">Eighteen whole months of laughing, loving, and being hopelessly yours, my love.</p>
+  <div class="hearts-row">
+    <span>🌸</span><span>🤍</span><span>🌸</span>
+  </div>
+  <p class="scroll-hint">↓ scroll down ↓</p>
+</section>
+
+<section class="counter-section">
+  <div class="section-label">Time Together</div>
+  <h2 class="section-title">Our Numbers 🐾</h2>
+  <div class="counter-grid">
+    <div class="counter-card">
+      <div class="icon">📅</div>
+      <div class="num" id="days">548</div>
+      <div class="unit">Days Together</div>
+    </div>
+    <div class="counter-card">
+      <div class="icon">🌙</div>
+      <div class="num">18</div>
+      <div class="unit">Months of Love</div>
+    </div>
+    <div class="counter-card">
+      <div class="icon">💌</div>
+      <div class="num">∞</div>
+      <div class="unit">I love yous</div>
+    </div>
+    <div class="counter-card">
+      <div class="icon">🐾</div>
+      <div class="num">1</div>
+      <div class="unit">Us, Forever</div>
+    </div>
+  </div>
+</section>
+
+<section class="quote-section">
+  <div class="paw-divider">🐾 🌸 🐾</div>
+  <blockquote>"You are my favourite notification, my safest place, and my favourite reason to smile."</blockquote>
+  <cite>— Always yours</cite>
+  <div class="paw-divider">🐾 🌸 🐾</div>
+</section>
+
+<section class="reasons-section">
+  <div class="section-label">From My Heart</div>
+  <h2 class="section-title">Why I Love You 🌸</h2>
+  <div class="reasons-list">
+    <div class="reason-item">
+      <span class="reason-icon">🐱</span>
+      <p class="reason-text">Because you love cats with your whole heart — and that tells me everything I need to know about how gently you love.</p>
+    </div>
+    <div class="reason-item">
+      <span class="reason-icon">🌙</span>
+      <p class="reason-text">Because our late-night talks feel like home. You make 2 AM feel cozy and safe.</p>
+    </div>
+    <div class="reason-item">
+      <span class="reason-icon">💕</span>
+      <p class="reason-text">Because your laugh is honestly my favourite sound in the entire world.</p>
+    </div>
+    <div class="reason-item">
+      <span class="reason-icon">🌸</span>
+      <p class="reason-text">Because you stay, even when things are hard. And that's the most beautiful thing about you.</p>
+    </div>
+    <div class="reason-item">
+      <span class="reason-icon">✨</span>
+      <p class="reason-text">Because you make ordinary days feel like little adventures just by being in them.</p>
+    </div>
+    <div class="reason-item">
+      <span class="reason-icon">🤍</span>
+      <p class="reason-text">Because 18 months in and my heart still does something silly every time I see your name.</p>
+    </div>
+  </div>
+</section>
+
+<section class="message-section">
+  <div class="section-label">For You</div>
+  <h2 class="section-title">A little note 💌</h2>
+  <div class="message-bubble">
+    <p>
+      Eighteen months ago, something quietly wonderful began — and every single day since has been proof that choosing you was the best thing I ever did.<br /><br />
+      You are my calm in chaos, my warm cup of tea, my favourite kind of weird. I hope today you feel just how <em>endlessly</em> loved you are — by me, always.
+    </p>
+    <p class="sign">With all my love,<br />forever yours 🐾🌸</p>
+  </div>
+</section>
+
+<div class="nav-section">
+  <a href="page2.html" class="nav-btn">🌸 A Little More Love →</a>
+  <p class="nav-note">There's one more surprise waiting for you 🐱</p>
+</div>
+
+<footer>
+  <div class="cat-row">🐾 🌸 🐾 🌸 🐾</div>
+  <p>Made with love &amp; a whole lot of pink, just for you 💕</p>
+</footer>
+
+<script>
+  // Generate floating paw background
+  const bgPaws = document.getElementById('bgPaws');
+  const emojis = ['🐾', '🌸', '💕', '✨', '🐱'];
+  for (let i = 0; i < 22; i++) {
+    const el = document.createElement('span');
+    el.classList.add('paw');
+    el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    el.style.left = Math.random() * 100 + 'vw';
+    el.style.top = Math.random() * 100 + 'vh';
+    el.style.fontSize = (1 + Math.random() * 1.5) + 'rem';
+    el.style.animationDuration = (10 + Math.random() * 15) + 's';
+    el.style.animationDelay = (Math.random() * 10) + 's';
+    bgPaws.appendChild(el);
+  }
+
+  // Live day counter — set your start date below!
+  const startDate = new Date('2023-09-29'); // ← change this to your actual anniversary start date
+  const today = new Date();
+  const diffTime = Math.abs(today - startDate);
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  document.getElementById('days').textContent = diffDays;
+</script>
+
+</body>
+</html>
